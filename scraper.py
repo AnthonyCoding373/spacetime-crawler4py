@@ -15,7 +15,27 @@ def extract_next_links(url, resp):
     #         resp.raw_response.url: the url, again
     #         resp.raw_response.content: the content of the page!
     # Return a list with the hyperlinks (as strings) scrapped from resp.raw_response.content
-    return list()
+
+    found_urls = set()
+
+    if resp.status == 200:
+        try:
+            content_string = resp.raw_response.content.decode("utf-8", errors="ignore")
+
+
+        except Exception as e:
+            return []
+
+        attr_pattern = r'(?:href|src)\s*=\s*["\']([^"\']+)["\']'
+        attribute_urls = re.findall(attr_pattern, content_string, re.IGNORECASE)
+
+        for href in attribute_urls:
+            href = href.strip()
+
+            if href and not href.startswith("#"):
+                found_urls.add(href)
+
+    return list(found_urls)
 
 def is_valid(url):
     # Decide whether to crawl this url or not. 
