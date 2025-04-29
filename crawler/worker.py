@@ -27,7 +27,12 @@ class Worker(Thread):
             if not tbd_url:
                 self.logger.info("Frontier is empty. Stopping Crawler.")
                 break
+                
             resp = download(tbd_url, self.config, self.logger)
+            if resp is None or not scraper.is_valid(tbd_url) or resp.status == '404' or resp.raw_response is None:
+                self.logger.warning(f"Empty response: {tbd_url}")
+                self.frontier.mark_url_complete(tbd_url)
+                continue
             current_url = tbd_url.split('#')[0]
             self.num_of_uniqueURL.add(current_url)
             parsed_info = BeautifulSoup(resp.raw_response.content, "html.parser")
@@ -40,7 +45,7 @@ class Worker(Thread):
                 self.longest_page_word_count = number_of_words
                 self.longestpage = tbd_url
             if current_subdomain.endswith("uci.edu"):
-                if current_subdomain not in self.current_subdomain:
+                if current_subdomain not in self.subdomain:
                     self.subdomain[current_subdomain] = 1
                 else:
                     self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1

@@ -48,6 +48,8 @@ def is_valid(url):
         hostname = parsed.hostname
         if not hostname:
             return False
+        if '/wp-json/' in url:
+            return False
         hostname = hostname.lower()
         hostname_parts = hostname.split('.')
         required_parts = ['ics', 'uci', 'edu']
