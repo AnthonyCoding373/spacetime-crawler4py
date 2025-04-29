@@ -34,7 +34,6 @@ def extract_next_links(url, resp):
 
             if href and not href.startswith("#"):
                 found_urls.add(href)
-    else if repo.status
 
     return list(found_urls)
 
