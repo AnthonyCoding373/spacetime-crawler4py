@@ -24,3 +24,17 @@ class Crawler(object):
     def join(self):
         for worker in self.workers:
             worker.join()
+
+    def reset_frontier(self):
+        """Resets frontier by deleteing the save file and re-initlizaitng the Frontier"""
+        self.logger.info("Resetting the frontier")
+        #Delete the save file
+        if os.path.exists(self.config.save_file):
+            os.remove(self.config.save_file)
+            self.logger.info(F"Deleted save file: {self.config.save_file}")
+
+        #Restart the frontier
+        self.frontier = Frontier(self.config, restart = True)
+        self.logger.info("Frontier re-initialized with seed URLs")
+        
+            
