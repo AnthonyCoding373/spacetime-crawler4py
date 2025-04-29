@@ -22,8 +22,11 @@ class Worker(Thread):
         super().__init__(daemon=True)
         
     def run(self):
+        #Testing if Part 1,2,4 work
+        globaltimer = 0
         while True:
             tbd_url = self.frontier.get_tbd_url()
+            globaltimer = globaltimer + 1
             if not tbd_url:
                 self.logger.info("Frontier is empty. Stopping Crawler.")
                 break
@@ -39,6 +42,10 @@ class Worker(Thread):
             gathered_text = parsed_info.get_text()
             all_valued_text = gathered_text.split()
             number_of_words = len(all_valued_text)
+            if (number_of_words < 50):
+                self.frontier.mark_url_complete(tbd_url)
+                self.logger.warning(f"Too Small Data Set: {tbd_url}")
+                continue
             current_authority = current_url.split('//')[-1]
             current_subdomain = current_authority.split('/')[0]
             if number_of_words > self.longest_page_word_count:
@@ -57,6 +64,16 @@ class Worker(Thread):
                 self.frontier.add_url(scraped_url)
             self.frontier.mark_url_complete(tbd_url)
             time.sleep(self.config.time_delay)
+            #Testing if Part 1,2,4 work
+            if globaltimer == 10:
+                print("CHECKING DATA:                      ")
+                print("Number of uniqueURLS: ", len(self.num_of_uniqueURL))
+                print("Longest page: " + self.longestpage)
+                print("Longest page contains ", self.longest_page_word_count, " words")
+                print("All Detected Subdomains: ")
+                for item in self.subdomain:
+                    print(item, self.subdomain[item])
+
 
         print("Number of uniqueURLS: ", len(self.num_of_uniqueURL))
         print("Longest page: " + self.longestpage)
