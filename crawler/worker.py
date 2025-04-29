@@ -12,6 +12,7 @@ class Worker(Thread):
         self.logger = get_logger(f"Worker-{worker_id}", "Worker")
         self.config = config
         self.frontier = frontier
+        self.num_of_uniqueURL = set()
         # basic check for requests in scraper
         assert {getsource(scraper).find(req) for req in {"from requests import", "import requests"}} == {-1}, "Do not use requests in scraper.py"
         assert {getsource(scraper).find(req) for req in {"from urllib.request import", "import urllib.request"}} == {-1}, "Do not use urllib.request in scraper.py"
@@ -24,6 +25,7 @@ class Worker(Thread):
                 self.logger.info("Frontier is empty. Stopping Crawler.")
                 break
             resp = download(tbd_url, self.config, self.logger)
+            num_of_uniqueURL.add(tbd_url.split('#')[0])
             self.logger.info(
                 f"Downloaded {tbd_url}, status <{resp.status}>, "
                 f"using cache {self.config.cache_server}.")
@@ -32,3 +34,5 @@ class Worker(Thread):
                 self.frontier.add_url(scraped_url)
             self.frontier.mark_url_complete(tbd_url)
             time.sleep(self.config.time_delay)
+
+        print("Number of uniqueURLS:"+ len(self.num_of_uniqueURL))
