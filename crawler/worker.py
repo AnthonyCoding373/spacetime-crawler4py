@@ -1,5 +1,5 @@
 from threading import Thread
-
+from bs4 import BeautifulSoup
 from inspect import getsource
 from utils.download import download
 from utils import get_logger
@@ -13,6 +13,8 @@ class Worker(Thread):
         self.config = config
         self.frontier = frontier
         self.num_of_uniqueURL = set()
+        self.longestpage = "Does not Exist"
+        self.longest_page_word_count = 0
         # basic check for requests in scraper
         assert {getsource(scraper).find(req) for req in {"from requests import", "import requests"}} == {-1}, "Do not use requests in scraper.py"
         assert {getsource(scraper).find(req) for req in {"from urllib.request import", "import urllib.request"}} == {-1}, "Do not use urllib.request in scraper.py"
@@ -25,7 +27,14 @@ class Worker(Thread):
                 self.logger.info("Frontier is empty. Stopping Crawler.")
                 break
             resp = download(tbd_url, self.config, self.logger)
-            num_of_uniqueURL.add(tbd_url.split('#')[0])
+            self.num_of_uniqueURL.add(tbd_url.split('#')[0])
+            parsed_info = BeautifulSoup(resp.raw_response.content, "html.parser")
+            gathered_text = parsed_info.get_text()
+            all_valued_text = gathered_text.split()
+            number_of_words = len(all_valued_text)
+            if number_of_words > self.longest_page_word_count:
+                self.longest_page_word_count = number_of_words
+                self.longestpage = tbd_url
             self.logger.info(
                 f"Downloaded {tbd_url}, status <{resp.status}>, "
                 f"using cache {self.config.cache_server}.")
@@ -35,4 +44,6 @@ class Worker(Thread):
             self.frontier.mark_url_complete(tbd_url)
             time.sleep(self.config.time_delay)
 
-        print("Number of uniqueURLS:"+ len(self.num_of_uniqueURL))
+        print("Number of uniqueURLS: ", len(self.num_of_uniqueURL))
+        print("Longest page: " + self.longestpage)
+        print("Longest page contains ", self.longest_page_word_count, " words")
