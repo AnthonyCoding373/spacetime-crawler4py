@@ -50,6 +50,7 @@ def is_valid(url):
             return False
         if '/wp-json/' in url:
             return False
+        #Might not be necessary to have
         if '?share=' in url:
             return False
         hostname = hostname.lower()
@@ -59,6 +60,8 @@ def is_valid(url):
             return False
         if hostname_parts[-len(required_parts):] != required_parts:
             return False
+        if 'date=' in url or 'date=' in url or 'day' in url or 'events' in url or 'event' in url:
+            return False 
         #for path for disallowed file extensions
         path = parsed.path.lower()
         if re.match(
