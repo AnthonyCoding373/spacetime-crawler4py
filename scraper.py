@@ -50,6 +50,8 @@ def is_valid(url):
             return False
         if '/wp-json/' in url:
             return False
+        if '?share=' in url:
+            return False
         hostname = hostname.lower()
         hostname_parts = hostname.split('.')
         required_parts = ['ics', 'uci', 'edu']

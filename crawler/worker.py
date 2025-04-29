@@ -66,6 +66,7 @@ class Worker(Thread):
             time.sleep(self.config.time_delay)
             #Testing if Part 1,2,4 work
             if globaltimer == 10:
+                globaltimer = 0
                 print("CHECKING DATA:                      ")
                 print("Number of uniqueURLS: ", len(self.num_of_uniqueURL))
                 print("Longest page: " + self.longestpage)
