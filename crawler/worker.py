@@ -80,6 +80,11 @@ class Worker(Thread):
                 self.frontier.add_url(scraped_url)
             self.frontier.mark_url_complete(tbd_url)
             time.sleep(self.config.time_delay)
+
+            #Delete this as this is just for testing
+            print("Num of unique URLS: ", len(self.StoredData.num_of_uniqueURL))
+
+
             # print("Testing central nervous system")
             # self.StoredData.print_brain_data()
             #Testing if Part 1,2,4 work
