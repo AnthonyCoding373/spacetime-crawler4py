@@ -14,30 +14,26 @@ class StoredData:
         self.subdomain = {}  
 
     def alter_unique_URL(self, url):
-        with self.lock:
-            self.num_of_uniqueURL.add(url)
+        self.num_of_uniqueURL.add(url)
     
     def alter_most_common_words(self, words):
-        with self.lock:
-            for text in words:
-                if text not in all_stop_words:
-                    if text not in self.most_common_words:
-                        self.most_common_words[text] = 1 
-                    else:
-                        self.most_common_words[text] = self.most_common_words[text] + 1
+        for text in words:
+            if text not in all_stop_words:
+                if text not in self.most_common_words:
+                    self.most_common_words[text] = 1 
+                else:
+                    self.most_common_words[text] = self.most_common_words[text] + 1
     
     def alter_longest_page(self, url, number_of_words):
-        with self.lock:
-            if number_of_words > self.longest_page_word_count:
-                    self.longest_page_word_count = number_of_words
-                    self.longestpage = url
+        if number_of_words > self.longest_page_word_count:
+                self.longest_page_word_count = number_of_words
+                self.longestpage = url
 
     def alter_subdomains(self, current_subdomain):
-        with self.lock:
-            if current_subdomain not in self.subdomain:
-                self.subdomain[current_subdomain] = 1
-            else:
-                self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1
+        if current_subdomain not in self.subdomain:
+            self.subdomain[current_subdomain] = 1
+        else:
+            self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1
 
 
     def print_brain_data(self):

@@ -7,13 +7,12 @@ import json
 
 class Crawler(object):
     def __init__(self, config, restart, frontier_factory=Frontier, worker_factory=Worker):
-        self.central_brain = StoredData()
         self.config = config
         self.logger = get_logger("CRAWLER")
         self.frontier = frontier_factory(config, restart)
         self.workers = list()
         self.worker_factory = worker_factory
-        
+        self.central_brain = StoredData()
 
     def start_async(self):
         self.workers = [
