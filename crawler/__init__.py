@@ -36,7 +36,7 @@ class Crawler(object):
                 file.write(f"  {word}\n")
 
             file.write("Unique Subdomains: \n")
-            for item in self.central_brain.subdomain.items():
+            for item in self.central_brain.subdomain.keys():
                 file.write(f"  {item}: {self.central_brain.subdomain[item]}\n")
 
     def join(self):

@@ -1,0 +1,63 @@
+Number of unique URLS: 592 
+Longest Page: https://ics.uci.edu/tag/software-engineering/feed 
+Longest Page contains: 10086 words
+50 Most common Words:
+  &
+  will
+  Research
+  ICS
+  The
+  –
+  I
+  Student
+  Computer
+  Science
+  game
+  Learning
+  students
+  Undergraduate
+  News
+  Informatics
+  School
+  Design
+  Bren
+  design
+  Donald
+  Game
+  UCI
+  work
+  Lab
+  Software
+  Graduate
+  class
+  Information
+  We
+  Spotlights
+  Tanenbaum,
+  games
+  Machine
+  People
+  Events
+  graduate
+  Play
+  This
+  Week
+  Honors
+  student
+  Sciences
+  |
+  Home
+  UC
+  Faculty
+  Alumni
+  In
+  University
+Unique Subdomains: 
+  ics.uci.edu: 11386
+  transformativeplay.ics.uci.edu: 11181
+  www.ics.uci.edu: 3746
+  evoke.ics.uci.edu: 637
+  wearablegames.ics.uci.edu: 2425
+  sdcl.ics.uci.edu: 8970
+  cradl.ics.uci.edu: 610
+  cyberclub.ics.uci.edu: 11
