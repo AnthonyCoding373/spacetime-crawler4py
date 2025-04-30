@@ -3,6 +3,7 @@ from crawler.frontier import Frontier
 from crawler.worker import Worker
 from crawler.central_brain import StoredData
 import os
+import json
 
 class Crawler(object):
     def __init__(self, config, restart, frontier_factory=Frontier, worker_factory=Worker):
@@ -25,13 +26,24 @@ class Crawler(object):
         self.join()
 
     def store_in_file():
-        with open("general-log.txt", 'w') as file:
-            file.write()
+        with open("general-log.txt", 'w') as file
+            file.write(f"Number of unique URLS: {len(self.central_brain.num_of_uniqueURL)} \n")
+            file.write(f"Longest Page: {self.central_brain.longestpage} \n")
+            file.write(f"Longest Page contains: {self.central_brain.longest_page_word_count} words\n")
+
+            file.write("50 Most common Words:\n")
+            for word in list(self.central_brain.most_frequent_words.keys())[:50]:
+                file.write(f"  {word}\n")
+
+            file.write("Unique Subdomains: \n")
+            for item in self.central_brain.subdomain.items():
+                file.write(f"  {item}: {self.central_brain.subdomain[item]}\n")
 
     def join(self):
         for worker in self.workers:
             worker.join()
-        self.central_brain.print_brain_data
+        self.central_brain.print_brain_data()
+        self.store_in_file()
 
 
     def reset_frontier(self):
@@ -47,3 +59,13 @@ class Crawler(object):
         self.logger.info("Frontier re-initialized with seed URLs")
         
             
+print("Number of uniqueURLS: ", len(self.num_of_uniqueURL))
+        print("Longest page: " + self.longestpage)
+        print("Longest page contains ", self.longest_page_word_count, " words")
+        self.most_frequent_words = dict(sorted(self.most_common_words.items(), key=lambda item: item[1], reverse=True))
+        print("All most common words sorted by frequency: ")
+        #print(self.most_frequent_words.keys())
+        print(list(self.most_frequent_words.keys())[:51])
+        print("All Detected Subdomains: ")
+        for item in self.subdomain:
+            print(item, self.subdomain[item])

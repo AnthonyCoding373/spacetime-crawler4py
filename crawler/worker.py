@@ -80,8 +80,8 @@ class Worker(Thread):
                 self.frontier.add_url(scraped_url)
             self.frontier.mark_url_complete(tbd_url)
             time.sleep(self.config.time_delay)
-            print("Testing central nervous system")
-            self.StoredData.print_brain_data()
+            # print("Testing central nervous system")
+            # self.StoredData.print_brain_data()
             #Testing if Part 1,2,4 work
             # print("Global Timer is: ", globaltimer )
             #print(self.most_common_words)
