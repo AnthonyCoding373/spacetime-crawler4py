@@ -10,17 +10,18 @@ from threading import RLock
 
 
 class Worker(Thread):
-    def __init__(self, worker_id, config, frontier):
+    def __init__(self, worker_id, config, frontier, StoredData):
         self.logger = get_logger(f"Worker-{worker_id}", "Worker")
         self.config = config
         self.frontier = frontier
+        self.lock = RLock
         # self.num_of_uniqueURL = set()
         # self.most_common_words = {}
         # self.most_frequent_words = {}
         # self.longestpage = "Does not Exist"
         # self.longest_page_word_count = 0
         # self.subdomain = {}  
-        self.StoredData = StoredData()
+        self.StoredData = StoredData
         # basic check for requests in scraper
         assert {getsource(scraper).find(req) for req in {"from requests import", "import requests"}} == {-1}, "Do not use requests in scraper.py"
         assert {getsource(scraper).find(req) for req in {"from urllib.request import", "import urllib.request"}} == {-1}, "Do not use urllib.request in scraper.py"
@@ -82,7 +83,7 @@ class Worker(Thread):
             time.sleep(self.config.time_delay)
 
             #Delete this as this is just for testing
-            print("Num of unique URLS: ", len(self.StoredData.num_of_uniqueURL))
+            self.StoredData.debug_test()
 
 
             # print("Testing central nervous system")

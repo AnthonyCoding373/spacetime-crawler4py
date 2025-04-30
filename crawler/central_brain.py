@@ -27,15 +27,17 @@ class StoredData:
                         self.most_common_words[text] = self.most_common_words[text] + 1
     
     def alter_longest_page(self, url, number_of_words):
-        if number_of_words > self.longest_page_word_count:
-                self.longest_page_word_count = number_of_words
-                self.longestpage = url
+        with self.lock:
+            if number_of_words > self.longest_page_word_count:
+                    self.longest_page_word_count = number_of_words
+                    self.longestpage = url
 
     def alter_subdomains(self, current_subdomain):
-        if current_subdomain not in self.subdomain:
-            self.subdomain[current_subdomain] = 1
-        else:
-            self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1
+        with self.lock:
+            if current_subdomain not in self.subdomain:
+                self.subdomain[current_subdomain] = 1
+            else:
+                self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1
 
 
     def print_brain_data(self):
@@ -50,3 +52,6 @@ class StoredData:
         print("All Detected Subdomains: ")
         for item in self.subdomain:
             print(item, self.subdomain[item])
+
+    def debug_test(self):
+        print("Num of unique URLS: ", len(self.num_of_uniqueURL))
