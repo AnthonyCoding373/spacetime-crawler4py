@@ -1,6 +1,7 @@
 from utils import get_logger
 from crawler.frontier import Frontier
 from crawler.worker import Worker
+from crawler.central_brain import StoredData
 import os
 
 class Crawler(object):
@@ -10,6 +11,7 @@ class Crawler(object):
         self.frontier = frontier_factory(config, restart)
         self.workers = list()
         self.worker_factory = worker_factory
+        self.central_brain = StoredData()
 
     def start_async(self):
         self.workers = [

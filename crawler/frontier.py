@@ -6,11 +6,13 @@ from queue import Queue, Empty
 
 from utils import get_logger, get_urlhash, normalize
 from scraper import is_valid
+"""Got to add with lock to all instances of self.save espcially with shelve as it is corrupting it do to not checks"""
 
 class Frontier(object):
     def __init__(self, config, restart):
         self.logger = get_logger("FRONTIER")
         self.config = config
+        self.lock = RLock
         self.to_be_downloaded = list()
         
         if not os.path.exists(self.config.save_file) and not restart:
