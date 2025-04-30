@@ -17,6 +17,7 @@ def main(config_file, restart):
     #crawler.reset_frontier()
     crawler.start()
     
+    
 
 
 if __name__ == "__main__":

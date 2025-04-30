@@ -24,9 +24,15 @@ class Crawler(object):
         self.start_async()
         self.join()
 
+    def store_in_file():
+        with open("general-log.txt", 'w') as file:
+            file.write()
+
     def join(self):
         for worker in self.workers:
             worker.join()
+        self.central_brain.print_brain_data
+
 
     def reset_frontier(self):
         """Resets frontier by deleteing the save file and re-initlizaitng the Frontier"""
