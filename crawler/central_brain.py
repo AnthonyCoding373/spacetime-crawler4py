@@ -35,6 +35,27 @@ class StoredData:
         else:
             self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1
 
+    def alter_data(self, trnum_of_uniqueURL, trmost_common_words, trmost_frequent_words, trlongestpage, trlongest_page_word_count, trsubdomain):
+        for i in trnum_of_uniqueURL:
+            self.num_of_uniqueURL.add(i)
+        
+        for i in trmost_common_words.keys():
+            if i not in all_stop_words:
+                if i not in self.most_common_words:
+                    self.most_common_words[i] = trmost_common_words[i] 
+                else:
+                    self.most_common_words[i] = self.most_common_words[i] + trmost_common_words[i] 
+
+        if trlongest_page_word_count > self.longest_page_word_count:
+            self.longest_page_word_count = trlongest_page_word_count
+            self.longestpage = trlongestpage
+        
+        for i in trsubdomain.keys():
+            if i not in self.subdomain:
+                self.subdomain[i] = trsubdomain[i] 
+            else:
+                self.subdomain[i] = self.subdomain[i] + trsubdomain[i] 
+
 
     def print_brain_data(self):
         print("CHECKING DATA:                      ")

@@ -25,7 +25,7 @@ class Crawler(object):
         self.start_async()
         self.join()
 
-    def store_in_file():
+    def store_in_file(self):
         with open("general-log.txt", 'w') as file:
             file.write(f"Number of unique URLS: {len(self.central_brain.num_of_uniqueURL)} \n")
             file.write(f"Longest Page: {self.central_brain.longestpage} \n")
