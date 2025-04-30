@@ -58,14 +58,3 @@ class Crawler(object):
         self.frontier = Frontier(self.config, restart = True)
         self.logger.info("Frontier re-initialized with seed URLs")
         
-            
-print("Number of uniqueURLS: ", len(self.num_of_uniqueURL))
-        print("Longest page: " + self.longestpage)
-        print("Longest page contains ", self.longest_page_word_count, " words")
-        self.most_frequent_words = dict(sorted(self.most_common_words.items(), key=lambda item: item[1], reverse=True))
-        print("All most common words sorted by frequency: ")
-        #print(self.most_frequent_words.keys())
-        print(list(self.most_frequent_words.keys())[:51])
-        print("All Detected Subdomains: ")
-        for item in self.subdomain:
-            print(item, self.subdomain[item])
