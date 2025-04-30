@@ -38,11 +38,12 @@ class Worker(Thread):
             tbd_url = self.frontier.get_tbd_url()
             # globaltimer = globaltimer + 1
             if not tbd_url:
+                
                 self.logger.info("Frontier is empty. Stopping Crawler.")
                 break
                 
             resp = download(tbd_url, self.config, self.logger)
-            if resp is None or not scraper.is_valid(tbd_url) or resp.status == '404' or resp.raw_response is None:
+            if resp is None or resp.status != 200 or resp.raw_response is None:
                 self.logger.warning(f"Empty response: {tbd_url}")
                 self.frontier.mark_url_complete(tbd_url)
                 continue
@@ -95,8 +96,11 @@ class Worker(Thread):
             if globaltimer >= 10:
                 self.StoredData.alter_data(self.num_of_uniqueURL, self.most_common_words, self.most_frequent_words, self.longestpage, self.longest_page_word_count, self.subdomain)
                 self.StoredData.debug_test()
+                ##Testing automatic killing of threads to see if it can be revived
+                # print("Thread killed")
+                # break
             else:
-                print(globaltimer)
+                #print(globaltimer)
                 globaltimer = globaltimer + 1
 
 

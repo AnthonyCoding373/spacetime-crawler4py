@@ -59,7 +59,7 @@ class StoredData:
                 self.subdomain[i] = self.subdomain[i] + trsubdomain[i] 
 
         self.count = self.count + 1
-        print("COUTN: ", self.count)
+        #print("COUTN: ", self.count)
         if self.count > 100:
             self.count = 0
             self.store_in_file()

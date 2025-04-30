@@ -1,63 +1,65 @@
-Number of unique URLS: 592 
-Longest Page: https://ics.uci.edu/tag/software-engineering/feed 
-Longest Page contains: 10086 words
+Number of unique URLS: 152 
+Longest Page: http://www.ics.uci.edu/~jutts/hyman.html 
+Longest Page contains: 13301 words
 50 Most common Words:
   &
-  will
-  Research
   ICS
-  The
-  –
-  I
-  Student
+  Research
   Computer
   Science
-  game
+  Student
   Learning
-  students
-  Undergraduate
-  News
-  Informatics
+  I
+  <a
   School
-  Design
+  Undergraduate
+  students
   Bren
-  design
   Donald
-  Game
-  UCI
-  work
-  Lab
-  Software
-  Graduate
-  class
   Information
-  We
-  Spotlights
-  Tanenbaum,
-  games
   Machine
-  People
-  Events
-  graduate
-  Play
-  This
-  Week
-  Honors
-  student
-  Sciences
-  |
-  Home
-  UC
+  Graduate
+  Spotlights
+  News
+  Statistics
+  Data
   Faculty
+  Irvine
+  Informatics
+  The
+  View
+  Honors
+  graduate
+  Sciences
+  2025
+  UC
+  community.
+  Programs
   Alumni
-  In
-  University
+  Follow
+  UCI
+  Awards
+  Tech
+  Lab
+  Health
+  Connected
+  computing
+  Admissions
+  Systems
+  student
+  health
+  Staff
+  Impact
+  Intelligent
+  AI
 Unique Subdomains: 
-  ics.uci.edu: 11386
-  transformativeplay.ics.uci.edu: 11181
-  www.ics.uci.edu: 3746
-  evoke.ics.uci.edu: 637
-  wearablegames.ics.uci.edu: 2425
-  sdcl.ics.uci.edu: 8970
-  cradl.ics.uci.edu: 610
-  cyberclub.ics.uci.edu: 11
+  www.stat.uci.edu: 34
+  acoi.ics.uci.edu: 34
+  cml.ics.uci.edu: 64
+  ics.uci.edu: 1907
+  www.cs.uci.edu: 28
+  www.ics.uci.edu: 330
+  hai.ics.uci.edu: 24
+  oai.ics.uci.edu: 62
+  www.informatics.uci.edu: 30
+  dgillen.ics.uci.edu: 8

@@ -22,8 +22,16 @@ class Crawler(object):
             worker.start()
 
     def start(self):
-        self.start_async()
-        self.join()
+        #test_counter = 0
+        while not self.frontier.is_empty():
+            #test_counter += 1
+            #print("Time till end:", test_counter)
+            #if test_counter >= 5:
+            #    self.frontier.to_be_downloaded.clear() 
+            print("Threads dead, restarting")
+            self.start_async()
+            self.join()
+            
 
     def store_in_file(self):
         with open("general-log.txt", 'w') as file:
