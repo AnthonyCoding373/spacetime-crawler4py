@@ -12,7 +12,11 @@ def main(config_file, restart):
     config = Config(cparser)
     config.cache_server = get_cache_server(config, restart)
     crawler = Crawler(config, restart)
+    #"Uncomment the bottom to reset the frontier (Will have to disable
+    #After to run again)"
+    #crawler.reset_frontier()
     crawler.start()
+    
 
 
 if __name__ == "__main__":
