@@ -67,7 +67,7 @@ def is_valid(url):
         if re.match(
             r".*\.(css|js|bmp|gif|jpe?g|ico|png|tiff?|mid|mp2|mp3|mp4"
             r"|wav|ppsx|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf|ps|eps|tex|ppt|pptx"
-            r"|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd"
+            r"|doc|txt|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd"
             r"|dmg|iso|epub|dll|cnf|tgz|sha1|thmx|mso|arff|rtf|jar|csv|rm"
             r"|smil|wmv|swf|wma|zip|rar|gz)$", path):
             return False
