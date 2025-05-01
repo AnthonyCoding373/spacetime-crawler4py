@@ -74,12 +74,12 @@ class Worker(Thread):
                 else:
                     self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1
 
-            for text in all_valued_text:
-                if text not in all_stop_words and text.isalpha() and len(text) > 1:
-                    if text not in self.most_common_words:
-                        self.most_common_words[text] = 1 
+            for text.lower() in all_valued_text:
+                if text.lower() not in all_stop_words and text.isalpha() and len(text) > 1:
+                    if text.lower() not in self.most_common_words:
+                        self.most_common_words[text.lower()] = 1 
                     else:
-                        self.most_common_words[text] = self.most_common_words[text] + 1
+                        self.most_common_words[text.lower()] = self.most_common_words[text.lower()] + 1
             self.logger.info(
                 f"Downloaded {tbd_url}, status <{resp.status}>, "
                 f"using cache {self.config.cache_server}.")

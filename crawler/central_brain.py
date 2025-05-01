@@ -19,12 +19,12 @@ class StoredData:
         self.num_of_uniqueURL.add(url)
     
     def alter_most_common_words(self, words):
-        for text in words:
-            if text not in all_stop_words:
-                if text not in self.most_common_words:
-                    self.most_common_words[text] = 1 
+        for text.lower() in words:
+            if text.lower() not in all_stop_words:
+                if text.lower() not in self.most_common_words:
+                    self.most_common_words[text.lower()] = 1 
                 else:
-                    self.most_common_words[text] = self.most_common_words[text] + 1
+                    self.most_common_words[text.lower()] = self.most_common_words[text.lower()] + 1
     
     def alter_longest_page(self, url, number_of_words):
         if number_of_words > self.longest_page_word_count:
