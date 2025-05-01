@@ -1,87 +1,76 @@
-Number of unique URLS: 2048 
-Longest Page: https://sli.ics.uci.edu/AIStats/Postings 
-Longest Page contains: 21539 words
+Number of unique URLS: 1900 
+Longest Page: http://www.ics.uci.edu/~shantas/tutorials/20-icde-crypto_encryption_secret-sharing_sgx_tutorial.ppsx 
+Longest Page contains: 1137519 words
 50 Most common Words:
-  =
-  &
-  Research
-  The
-  will
-  ICS
-  Science
+  WICS
+  Code
+  Week
+  GHC
+  Bytes
+  Merch
+  Events
+  Community
+  Committee
+  Us
+  Outreach
+  About
   Computer
-  We
-  ]
-  I
-  Learning
-  University
-  Student
+  vGHC
+  Officers
+  Blogs
+  Spring
+  share
+  ICS
+  Mentorship
   Information
-  |
-  data
-  This
-  School
-  University);
-  Data
-  students
-  In
-  Bren
-  Track
-  –
+  We
   News
-  Undergraduate
-  [
-  #
-  A
-  UCI
-  set
-  Donald
-  author
-  title
-  Irvine
-  PDF
-  2023
-  <a
-  2025
-  year
-  }
-  work
-  T.
-  Machine
-  Graduate
-  A.
-  Systems
+  Sciences
+  Women
+  The
+  students
+  Awards
   Program
+  content
+  Research
+  Skip
+  It
+  All
+  Home
+  LinkedIn
+  Contact
+  Calendar
+  Search
+  Apply
+  Instagram
+  History
+  What
+  Summer
+  Web
+  Conference
+  Applications
+  Previous
+  Fall
+  FAQ
 Unique Subdomains: 
-  www.stat.uci.edu: 302
-  ics.uci.edu: 59516
-  hai.ics.uci.edu: 302
-  www.ics.uci.edu: 7580
-  www.cs.uci.edu: 314
-  www.informatics.uci.edu: 311
-  transformativeplay.ics.uci.edu: 21191
-  wearablegames.ics.uci.edu: 5591
-  evoke.ics.uci.edu: 1403
-  isg.ics.uci.edu: 9827
-  icde2023.ics.uci.edu: 19700
-  tutors.ics.uci.edu: 195
-  duttgroup.ics.uci.edu: 1347
-  courselisting.ics.uci.edu: 180
-  www.graphics.ics.uci.edu: 197
-  acoi.ics.uci.edu: 6791
-  sli.ics.uci.edu: 58311
-  archive.ics.uci.edu: 368
-  wiki.ics.uci.edu: 679
-  swiki.ics.uci.edu: 655
-  ics53-hub.ics.uci.edu: 141
-  ics46-staging-hub.ics.uci.edu: 120
-  hub.ics.uci.edu: 415
-  ics46-hub.ics.uci.edu: 119
-  ics45c-hub.ics.uci.edu: 135
-  cs260p-hub.ics.uci.edu: 118
-  staging-hub.ics.uci.edu: 136
-  julia-hub.ics.uci.edu: 134
-  ics53-staging-hub.ics.uci.edu: 138
-  ics45c-staging-hub.ics.uci.edu: 135
-  graphmod.ics.uci.edu: 23
-  ngs.ics.uci.edu: 225
+  www.ics.uci.edu: 8022
+  ics.uci.edu: 20958
+  wics.ics.uci.edu: 224482
+  www.cs.uci.edu: 349
+  www.stat.uci.edu: 290
+  cs.ics.uci.edu: 670
+  www.informatics.uci.edu: 380
+  courselisting.ics.uci.edu: 265
+  evoke.ics.uci.edu: 485
+  accessibility.ics.uci.edu: 128
+  mswe.ics.uci.edu: 1735
+  code.ics.uci.edu: 1947
+  isg.ics.uci.edu: 588
+  chenli.ics.uci.edu: 242
+  ds4all.ics.uci.edu: 591
+  grape.ics.uci.edu: 183
+  transformativeplay.ics.uci.edu: 5517
+  wearablegames.ics.uci.edu: 1080
+  mdogucu.ics.uci.edu: 3
+  wiki.ics.uci.edu: 58
+  mailman.ics.uci.edu: 37
