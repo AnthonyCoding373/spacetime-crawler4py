@@ -43,7 +43,7 @@ class Worker(Thread):
                 break
                 
             resp = download(tbd_url, self.config, self.logger)
-            if resp is None or resp.status != 200 or resp.raw_response is None:
+            if resp is None or resp.status >= 404 or resp.raw_response is None:
                 self.logger.warning(f"Empty response: {tbd_url}")
                 self.frontier.mark_url_complete(tbd_url)
                 continue
@@ -75,7 +75,7 @@ class Worker(Thread):
                     self.subdomain[current_subdomain] = self.subdomain[current_subdomain] + 1
 
             for text in all_valued_text:
-                if text not in all_stop_words:
+                if text not in all_stop_words and text.isalpha() and len(text) > 1:
                     if text not in self.most_common_words:
                         self.most_common_words[text] = 1 
                     else:
